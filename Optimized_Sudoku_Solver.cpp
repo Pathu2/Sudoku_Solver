@@ -9,8 +9,8 @@ and we are bit masking it, and each time when we are taking a number, we dont ne
 take the O(n) time complexity to find whether can we take it or not we can simply
 use one if statement and can check.*/
 
-const int Boardsize = 4;
-const int Cellsize = 2;
+const int Boardsize = 9;
+const int Cellsize = 3;
 int ans = 0;
 int board[Boardsize][Boardsize];
 
@@ -67,7 +67,6 @@ void rec(int row, int col)
     if (row==Boardsize)
     {
         ans++;
-        cout<<"Answer is "<<ans<<endl;
         for (int i = 0; i < Boardsize; i++)
         {
             for (int j = 0; j < Boardsize; j++)
@@ -110,16 +109,15 @@ void solve(){
             makemove(ch, i, j);
         }
     }
+    cout<<endl<<"Solution is: "<<endl;
     rec(0,0);
     /*Our level is cell, so we will pass the column number and row number to the fucntion*/
     cout<<ans<<endl;
+    /*Number of solutions*/
 }
 signed main(){
     ios_base::sync_with_stdio(0);
     cin.tie(0);cout.tie(0);
-
-    int t; cin>>t; while(t--){
-        solve();
-    }
+    solve();
     return 0;
 }
